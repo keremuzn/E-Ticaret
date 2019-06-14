@@ -14,7 +14,10 @@
                     <h5 class="card-title">@Model.Brand @Model.Model</h5>
                     <p class="card-text">@Model.Price.ToString("##,## ₺")</p>
                     <p class="card-text">@Model.Description</p>
-                    <a href="#" class="btn btn-secondary">  Sepete At  </a>
+                    @if (Session["LoginUser"] != null)
+                    {
+                        <a href="#" class="btn btn-secondary">  Sepete At  </a>
+                    }
                 </div>
             </div>
         </div>
