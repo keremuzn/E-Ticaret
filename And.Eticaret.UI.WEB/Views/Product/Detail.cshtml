@@ -1,0 +1,27 @@
+﻿@model And.Eticaret.Core.Model.Entity.Product
+@{
+    ViewBag.Title = "Ürün Detayı";
+}
+
+<h2>Ürün Detayı</h2>
+
+
+<hr />
+        <div class="col-3" style="margin:auto">
+            <div class="card" style="width:auto">
+                <img  src="@Model.ImageUrl" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Brand @Model.Model</h5>
+                    <p class="card-text">@Model.Price.ToString("##,## ₺")</p>
+                    <p class="card-text">@Model.Description</p>
+                    <a href="#" class="btn btn-secondary">  Sepete At  </a>
+                </div>
+            </div>
+        </div>
+    
+       
+        <style>
+            .card {
+                text-align: center;
+            }
+        </style>

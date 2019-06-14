@@ -1,0 +1,45 @@
+﻿@model List<And.Eticaret.Core.Model.Entity.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>E-Ticaret Sayfama Hoşgeldiniz</h2>
+
+<h6>Son 5 Ürün</h6>
+<div class="container">
+    <div class="row">
+        @{
+            foreach (var item in Model)
+            {
+
+
+                <div class="col-md-3" style="float:left; margin:40px">
+                    <div class="card" style="width: 18rem">
+                        <img style="width:200px; height:200px; align-self:center" src="@item.ImageUrl" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Brand @item.Model</h5>
+                            <p class="card-text">@item.Price.ToString("##,## ₺")</p>
+                            @if (item.Description.Length > 50)
+                            {
+                                string desc = item.Description.Substring(0, 50);
+                                <p class="card-text">@desc ...</p>
+                            }
+
+                            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> İncele </a>
+                            <a href="#" class="btn btn-secondary">  Sepete At  </a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>
+
+<style>
+    .card{
+        text-align:center;
+        
+            
+    }
+</style>

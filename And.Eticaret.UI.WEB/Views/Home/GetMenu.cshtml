@@ -1,0 +1,26 @@
+﻿@model IEnumerable<And.Eticaret.Core.Model.Entity.Category>
+@{
+/**/
+
+    foreach (var item in Model)
+        {
+             <a class="dropdown-item" href="/Kategori/@item.Name.Replace(" ","-")/@item.ID"> @item.Name</a>
+
+        }
+
+}
+@*<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Kategoriler
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        @{ foreach (var item in Model)
+            {
+            <a class="dropdown-item" href="#">@item.Name</a>
+
+                }
+            }
+
+    </div>
+</div>*@
+

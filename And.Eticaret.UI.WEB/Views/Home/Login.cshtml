@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .left {
+        width: 120px;
+        float: left;
+        margin: 5px;
+    }
+
+    .right {
+        width: 120px;
+        float: left;
+    }
+</style>
+<h2 style="text-align:center">Üye Giriş Sayfası</h2>
+@{
+    if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+}
+
+<form action="uye-giris" method="post">
+    <div class="container" style="text-align:center">
+        <div class="form-group ">
+            @Html.Label("E-Posta Adresiniz ")
+            <br />
+            @Html.TextBox("Email")
+
+        </div>
+        <div class="form-group ">
+            @Html.Label("Şifreniz ")
+            <br />
+            @Html.Password("Password")
+        </div>
+        <div class=" form-group">
+            <button type="submit" class="btn btn-success"> Uye Giriş</button>
+        </div>
+        
+    </div>
+</form>

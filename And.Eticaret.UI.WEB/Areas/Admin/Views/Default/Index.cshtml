@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "Admin Sayfası";
+
+    var user = Session["AdminLoginUser"] as And.Eticaret.Core.Model.Entity.User;
+}
+
+<h2>Yönetici Sayfasına Hoşgeldiniz. @user.Name  @user.LastName  </h2>
