@@ -25,10 +25,10 @@
                                 <p class="card-text">@desc ...</p>
                             }
 
-                            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> İncele </a>
+                            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> <i class="fas fa-search"></i> İncele </a>
                             @if (Session["LoginUser"] != null)
                             {
-                                <a href="#" class="btn btn-secondary" id="addBasket">  Sepete At  </a>
+                                <a href="#"  data-pID="@item.ID"class="btn btn-secondary" id="addBasket">  <i class="fas fa-cart-plus"></i>   Sepete At  </a>
                             }
 
                         </div>
@@ -39,8 +39,9 @@
         }
     </div>
 </div>
-<div  id="andModel" title="Teşekkürler ... ">
+<div id="andModel" title="Teşekkürler ... ">
     Ürününüz Sepete Atılmıştır
+    <a class="btn btn-success" href="/Sepetim">Sepetime Git</a>
 </div>
 <div class="row"></div>
 <style>
@@ -64,8 +65,12 @@
     });
 
       $("#addBasket").on("click", function () {
-          
-        $("#andModel").dialog("open");
+          var pid = $(this).attr("data-pID");
+          $.post("/Basket/AddProduct?productID=" + pid + "&quantity=1", function (data) {
+
+              $("#andModel").dialog("open");
+          });
+        
           return false;
     });
   });
