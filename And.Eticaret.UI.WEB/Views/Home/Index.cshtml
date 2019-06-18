@@ -25,8 +25,12 @@
                                 <p class="card-text">@desc ...</p>
                             }
 
-                            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> İncele </a>
-                            <a href="#" class="btn btn-secondary">  Sepete At  </a>
+                            <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> <i class="fas fa-search"></i> İncele </a>
+                            @if (Session["LoginUser"] != null)
+                            {
+                                <a href="#"  data-pID="@item.ID"class="btn btn-secondary" id="addBasket">  <i class="fas fa-cart-plus"></i>   Sepete At  </a>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -35,11 +39,40 @@
         }
     </div>
 </div>
-
+<div id="andModel" title="Teşekkürler ... ">
+    Ürününüz Sepete Atılmıştır
+    <a class="btn btn-success" href="/Sepetim">Sepetime Git</a>
+</div>
+<div class="row"></div>
 <style>
-    .card{
-        text-align:center;
-        
-            
+    .card {
+        text-align: center;
     }
 </style>
+@section script{
+    <script type="text/javascript">
+  $( function() {
+    $( "#andModel" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+
+      $("#addBasket").on("click", function () {
+          var pid = $(this).attr("data-pID");
+          $.post("/Basket/AddProduct?productID=" + pid + "&quantity=1", function (data) {
+
+              $("#andModel").dialog("open");
+          });
+        
+          return false;
+    });
+  });
+    </script>
+}

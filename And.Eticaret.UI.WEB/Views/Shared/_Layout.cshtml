@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - E-Ticaret.com</title>
 
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-   
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <link href="~/CSS/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -57,13 +58,13 @@
                                 <a class="nav-link">Merhaba @usr.Name  @usr.LastName</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link">Profilim</a>
+                                <a class="nav-link" href="#">Profilim</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link">Sepetim</a>
+                                <a class="nav-link" href="/Sepetim">Sepetim</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link">Siparişlerim</a>
+                                <a class="nav-link" href="#">Siparişlerim</a>
                             </li>
 
 
@@ -88,6 +89,8 @@
 
 
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @RenderSection("script", false)
 </body>
 </html>

@@ -37,11 +37,15 @@ namespace And.Eticaret.UI.WEB.Controllers
         [Route("Uye-Giris")]
         public ActionResult Login( string Email,string Password)
         {
-            var users = db.Users.Where(x => x.Email == Email && x.Password == Password && x.IsActive == true && x.IsAdmin == false).ToList();
+            var users = db.Users.Where(x => x.Email == Email && 
+            x.Password == Password && 
+            x.IsActive == true && 
+            x.IsAdmin == false).ToList();
          
             if (users.Count == 1)
             {
                 // giriş tamam
+                Session["LoginUserID"] = users.FirstOrDefault().ID;
                 Session["LoginUser"] = users.FirstOrDefault();
                 return Redirect("/");
 
