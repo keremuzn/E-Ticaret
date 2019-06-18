@@ -1,0 +1,68 @@
+﻿@model And.Eticaret.Core.Model.Entity.Order
+@{
+    ViewBag.Title = "Sipariş Detayı";
+}
+
+<h2>@Model.ID Nolu Siparişiniz Şiparişinizin Durumu : @Model.Status.Name </h2>
+
+<b>Banka Bilgileri</b>
+
+<table class="table">
+    <tr class="row">
+        <td class="col-md-3"> Banka : </td>
+        <td class="col-md-3">  ABC Bank</tdclass="col">
+    </tr>
+
+    <tr class="row" >
+        <td class="col-md-3" > İban : </td>
+        <td class="col-md-3" > TR14526335353535 </td>
+    </tr>
+    <tr class="row"  >
+        <td class="col-md-3" > Alıcı Adı :</td>
+        <td class="col-md-3" > ABC Firması asdasdasd</td>
+    </tr>
+</table>
+@{ if (Model.StatusID == 4)
+    {
+        <a href="#" class="btn btn-success">Ödeme Yaptım</a>
+    }
+}
+
+        <hr />
+<b>Sipariş Bilgileri</b>
+
+<table class="table">
+
+
+    <tr class="row">
+        <td class="col">Ürünler Toplamı  </td>
+        <td class="col"> İndirim Toplamı  </td>
+        <td class="col"> Vergi Toplamı  </td>
+        <td class="col"> Toplam  </td>
+    </tr>
+    <tr class="row">
+        <td class="col"> @Model.TotalProductPrice.ToString("##,## ₺") </td>
+        <td class="col">@Model.TotalDiscount.ToString("##,## ₺")</td>
+        <td class="col">@Model.TotalTaxPrice.ToString("##,## ₺")</td>
+        <td class="col">@Model.TotalPrice.ToString("##,## ₺") </td>
+    </tr>
+  
+</table>
+<hr />
+<b> Ürünler</b>
+
+<table class="table"    >
+    <tr class="row">
+        <th class="col-3">Ürün  </th>
+        <th class="col-3">Adet  </th>
+    </tr>
+    @{
+        foreach (var item in Model.OrderProducts)
+        {
+            <tr class="row">
+                <td class="col-3">@item.Product.Name</td>
+                <td class="col-3">@item.Quantity</td>
+            </tr>
+        }
+    }
+</table>
