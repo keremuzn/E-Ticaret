@@ -10,7 +10,7 @@
 <table class="table">
     <tr class="row">
         <td class="col-md-3"> Banka : </td>
-        <td class="col-md-3">  ABC Bank</tdclass="col">
+        <td class="col-md-3">  ABC Bank</td class="col">
     </tr>
 
     <tr class="row" >
@@ -24,7 +24,7 @@
 </table>
 @{ if (Model.StatusID == 4)
     {
-        <a href="#" class="btn btn-success">Ödeme Yaptım</a>
+        <a href="/Order/Pay?id=@Model.ID" class="btn btn-success">Ödeme Yaptım</a>
     }
 }
 

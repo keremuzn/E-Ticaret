@@ -92,5 +92,12 @@ namespace And.Eticaret.UI.WEB.Controllers
             var data = db.Orders.Include("Status").Where(x => x.UserID == LoginUserID).ToList();
             return View(data);
         }
+        public ActionResult Pay(int id)
+        {
+            var order = db.Orders.Where(x => x.ID == id).FirstOrDefault();
+            order.StatusID = 13;
+            db.SaveChanges();
+            return RedirectToAction("Detail", new { id = order.ID });
+        }
     }
 }

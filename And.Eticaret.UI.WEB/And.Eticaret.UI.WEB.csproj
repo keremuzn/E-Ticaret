@@ -1767,6 +1767,10 @@
     <Content Include="CSS\webfonts\fa-solid-900.ttf" />
     <Content Include="CSS\webfonts\fa-solid-900.woff" />
     <Content Include="CSS\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\AdminOrders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -1788,6 +1792,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminControllerBase.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminOrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
