@@ -1803,6 +1803,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1840,6 +1841,7 @@
     <Content Include="Views\Order\CreateOrder.cshtml" />
     <Content Include="Views\Order\Detail.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

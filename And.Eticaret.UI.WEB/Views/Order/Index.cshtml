@@ -9,44 +9,48 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Sipariş No
-        </th>
-        <th>
-            Ürün
-        </th>      
-        <th>
-            Toplam Fiyat
-        </th>
-        <th>
-            Siparis Tarihi
-        </th>
-        <th></th>
-    </tr>
+<table class="table ">
+    <thead class="thead-dark"  >
+        <tr class="row">
+            <th class="col-md-1">
+                Sipariş No
+            </th>
+            <th class="col">
+                Ürün
+            </th>
+            <th class="col">
+                Toplam Fiyat
+            </th>
+            <th class="col">
+                Siparis Tarihi
+            </th>
+            <th class="col"></th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status.Name)
-        </td>
-        <td>
-           @item.TotalPrice.ToString("##,## ₺")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateDate)
-        </td>
-       
-        <td>
-          
-            @Html.ActionLink("Sipariş Detayı", "Detail", new { id=item.ID }) 
-           
-        </td>
-    </tr>
-}
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr class="row">
+            <td class="col-md-1">
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.Status.Name)
+            </td>
+            <td class="col">
+                @item.TotalPrice.ToString("##,## ₺")
+            </td>
+            <td class="col">
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+
+            <td class="col">
+
+                @Html.ActionLink("Sipariş Detayı", "Detail", new { id = item.ID })
+
+            </td>
+        </tr>
+    }
 
 </table>

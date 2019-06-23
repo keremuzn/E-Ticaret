@@ -16,7 +16,7 @@
                 <div class="col-md-3" style="float:left; margin:40px">
                     <div class="card" style="width: 18rem">
                         <img style="width:200px; height:200px; align-self:center" src="@item.ImageUrl" class="card-img-top">
-                        <div class="card-body">
+                        <div class="card-body bg-light ">
                             <h5 class="card-title">@item.Brand @item.Model</h5>
                             <p class="card-text">@item.Price.ToString("##,## ₺")</p>
                             @if (item.Description.Length > 50)
@@ -28,7 +28,7 @@
                             <a href="/urun/@item.Name.Replace(" ","-")/@item.ID" class="btn btn-success"> <i class="fas fa-search"></i> İncele </a>
                             @if (Session["LoginUser"] != null)
                             {
-                                <a href="#"  data-pID="@item.ID"class="btn btn-secondary" id="addBasket">  <i class="fas fa-cart-plus"></i>   Sepete At  </a>
+                                <a href="#"  data-pID="@item.ID"class="btn btn-secondary addBasket" >  <i class="fas fa-cart-plus"></i>   Sepete At  </a>
                             }
 
                         </div>
@@ -64,7 +64,7 @@
       }
     });
 
-      $("#addBasket").on("click", function () {
+      $(".addBasket").on("click", function () {
           var pid = $(this).attr("data-pID");
           $.post("/Basket/AddProduct?productID=" + pid + "&quantity=1", function (data) {
 
