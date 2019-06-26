@@ -9,17 +9,17 @@
 
 <table class="table">
     <tr class="row">
-        <td class="col-md-3"> Banka : </td>
-        <td class="col-md-3">  ABC Bank</td class="col">
+        <td class="col-md-6"> Banka : </td>
+        <td class="col-md-6">  ABC Bank</td class="col">
     </tr>
 
     <tr class="row" >
-        <td class="col-md-3" > İban : </td>
-        <td class="col-md-3" > TR14526335353535 </td>
+        <td class="col-md-6" > İban : </td>
+        <td class="col-md-6" > TR14526335353535 </td>
     </tr>
     <tr class="row"  >
-        <td class="col-md-3" > Alıcı Adı :</td>
-        <td class="col-md-3" > ABC Firması asdasdasd</td>
+        <td class="col-md-6" > Alıcı Adı :</td>
+        <td class="col-md-6" > ABC Firması asdasdasd</td>
     </tr>
 </table>
 @{ if (Model.StatusID == 4)
@@ -54,15 +54,19 @@
 <table class="table"    >
     <tr class="row">
         <th class="col-3">Ürün  </th>
+        <th class="col-3">Marka  </th>
         <th class="col-3">Adet  </th>
+        <th class="col-3">Fiyat  </th>
     </tr>
     @{
         foreach (var item in Model.OrderProducts)
         {
-            <tr class="row">
-                <td class="col-3">@item.Product.Name</td>
-                <td class="col-3">@item.Quantity</td>
-            </tr>
+    <tr class="row">
+        <td class="col-3">@item.Product.Name</td>
+        <td class="col-3">@item.Product.Brand</td>
+        <td class="col-3">@item.Quantity</td>
+        <td class="col-3">@item.Product.Price</td>
+    </tr>
         }
     }
 </table>
