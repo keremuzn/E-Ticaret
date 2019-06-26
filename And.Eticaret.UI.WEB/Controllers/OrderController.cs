@@ -11,6 +11,9 @@ namespace And.Eticaret.UI.WEB.Controllers
 {
     public class OrderController : AndControllerBase
     {
+	
+
+	
         AndDB db = new AndDB();
         // GET: Order
         [Route("SiparisVer")]
@@ -60,10 +63,41 @@ namespace And.Eticaret.UI.WEB.Controllers
                     ProductID = item.ProductID,
                     Quantity = item.Quantity
                 });
+                db.Baskets.Remove(item);
             }
             db.Orders.Add(order);
+
             db.SaveChanges();
-            return View();
+            // var orderid = db.Orders.Where(x => x.UserID == LoginUserID).LastOrDefault().ID;
+            return RedirectToAction("Detail", new { id =  order.ID});
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var data = db.Orders.Include("OrderProducts")
+                .Include("OrderProducts.Product")
+                .Include("OrderPayments")
+                .Include("Status")
+                .Include("UserAddress")
+                .Where(x => x.ID == id).FirstOrDefault();
+
+            return View(data);
+
+        }
+
+
+        [Route("Siparislerim")]
+        public ActionResult Index()
+        {
+            var data = db.Orders.Include("Status").Where(x => x.UserID == LoginUserID).ToList();
+            return View(data);
+        }
+        public ActionResult Pay(int id)
+        {
+            var order = db.Orders.Where(x => x.ID == id).FirstOrDefault();
+            order.StatusID = 13;
+            db.SaveChanges();
+            return RedirectToAction("Detail", new { id = order.ID });
         }
     }
 }

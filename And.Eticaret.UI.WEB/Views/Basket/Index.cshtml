@@ -8,54 +8,59 @@
 
 
 <table class="table">
-    <tr>
-
-        <th>
-            Ürün
-        </th>
-        <th>
-            Resim
-        </th>
-        <th>
-            Adet
-        </th>
-        <th>
-            Fiyat
-        </th>
-        <th>
-          
-        </th>
-
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.Name)
-        </td>
     
-        <td>
-            <img style="width:75px; height:75px; align-self:center" src="@item.Product.ImageUrl" class="card-img-top">
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @item.Product.Price.ToString("##,## ₺")
-        </td>
-        <td >
-            <a style="width:80px" class="btn btn-danger" href="/Basket/Delete?id=@item.ID" ><i class="far fa-trash-alt"></i> Sil</a>
-            @*@Html.ActionLink("Sil", "Delete", new { id=item.ID })*@
-        </td>
-    </tr>
-}
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <a href="/SiparisVer" class="btn btn-warning"><i class="fas fa-credit-card"></i>  Satın Al</a>
-        </td>
-    </tr>
+    <thead class="thead-dark">
+        <tr class="row">
+
+            <th class="col">
+                Ürün
+            </th>
+            <th class="col">
+                Resim
+            </th>
+            <th class="col">
+                Adet
+            </th>
+            <th class="col">
+                Fiyat
+            </th>
+            <th class="col">
+
+            </th>
+
+        </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr class="row">
+                <td class="col">
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+
+                <td class="col">
+                    <img style="width:75px; height:75px; align-self:center" src="@item.Product.ImageUrl" class="card-img-top">
+                </td>
+                <td class="col">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td class="col">
+                    @item.Product.Price.ToString("##,## ₺")
+                </td>
+                <td class="col">
+                    <a style="width:80px" class="btn btn-danger" href="/Basket/Delete?id=@item.ID"><i class="far fa-trash-alt"></i> Sil</a>
+                    @*@Html.ActionLink("Sil", "Delete", new { id=item.ID })*@
+                </td>
+            </tr>
+        }
+            <tr class="row">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <td class="col"></td>
+                }
+            
+
+                <td class="col">
+                    <a href="/SiparisVer" class="btn btn-warning"><i class="fas fa-credit-card"></i>  Satın Al</a>
+                </td>
+            </tr>
 </table>

@@ -1,0 +1,66 @@
+﻿@model And.Eticaret.Core.Model.Entity.User
+
+@{
+    ViewBag.Title = "Profil";
+}
+
+<h2>Kullanıcı Bilgileriniz</h2>
+
+<div class="container">
+    
+    <hr />
+    <table class="table">
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+
+        
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.TCKN)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.TCKN)
+        </dd>
+
+    
+        <dt class="row">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd class="row">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+
+    </table>
+</div>
+
